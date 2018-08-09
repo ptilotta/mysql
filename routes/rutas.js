@@ -21,7 +21,7 @@ app.get('/juegos', function(req, res) {
         }
     }
     traigoJuegos();
-    conn.cerrar();
+
 
 });
 
