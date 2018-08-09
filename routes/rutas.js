@@ -13,7 +13,8 @@ app.get('/juegos', function(req, res) {
                 if (err) {
                     res.status(400).json(err);
                 } else {
-                    res.status(200).json(result);
+                    res.status(200).json(result)
+                    await conn.cerrar();
                 }
             });
         } catch (error) {
