@@ -24,3 +24,5 @@ app.get('/juegos', function(req, res) {
     conn.cerrar();
 
 });
+
+module.exports = app;
