@@ -14,7 +14,4 @@ connection.connect(function(error) {
     }
 });
 
-async function cerrar() {
-    await connection.close();
-}
-module.exports = connection, cerrar;
+module.exports = connection;

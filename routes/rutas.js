@@ -14,8 +14,8 @@ app.get('/juegos', function(req, res) {
                     res.status(400).json(err);
                 } else {
                     res.status(200).json(result)
-                    conn.cerrar();
                 }
+                conn.end();
             });
         } catch (error) {
             res.status(400).json(error);
