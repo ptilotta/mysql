@@ -1,6 +1,7 @@
+require('../config/mysql');
+
 const express = require('express');
 const app = express();
-const conn = require('../config/mysql');
 
 //---------------------------------------------------------------------
 // Lee la tabla Juegos del sitio JUEGOSFL.COM
