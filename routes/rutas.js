@@ -8,14 +8,14 @@ const app = express();
 //---------------------------------------------------------------------
 app.get('/juegos', function(req, res) {
 
-    var mysql = new mySQL;
+    var bd = new mySQL;
 
     let traigoJuegos = async() => {
-        await mysql.conectar();
-        mysql.sql = process.env.sql;
-        await mysql.leoMySQL();
-        if (mysql.result) {
-            res.status(200).json(result);
+        await bd.conectar();
+        bd.sql = process.env.sql;
+        await bd.leoMySQL();
+        if (bd.result) {
+            res.status(200).json(bd.result);
         } else {
             res.status(400).json({
                 'Mensaje: ': 'Sin Resultados'
@@ -23,8 +23,6 @@ app.get('/juegos', function(req, res) {
         }
     }
     traigoJuegos();
-
-
 });
 
 module.exports = app;
