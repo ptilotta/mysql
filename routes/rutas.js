@@ -8,9 +8,9 @@ const app = express();
 //---------------------------------------------------------------------
 app.get('/juegos', function(req, res) {
 
-    var bd = new mySQL;
 
     let traigoJuegos = async() => {
+        var bd = new mySQL;
         await bd.conectar();
         bd.sql = process.env.sql;
         await bd.leoMySQL();
