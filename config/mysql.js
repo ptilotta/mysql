@@ -42,15 +42,19 @@ class mySQL {
     async leoMySQL() {
         if (await this.conn.getConnection((error, result) => {
                 if (error) throw error;
-                await this.conn.query(this.conn.sql, (err, result) => {
-                    if (err) {
-                        this.conn.end();
-                        console.log(err);
-                        return;
-                    }
-                    this.result = result;
-                });
+                this.leo();
             }));
+    }
+
+    async leo() {
+        await this.conn.query(this.conn.sql, (err, result) => {
+            if (err) {
+                this.conn.end();
+                console.log(err);
+                return;
+            }
+            this.result = result;
+        });
     }
 }
 
