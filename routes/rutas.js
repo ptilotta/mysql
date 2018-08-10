@@ -7,18 +7,18 @@ const conn = require('../config/mysql');
 //---------------------------------------------------------------------
 app.get('/juegos', function(req, res) {
 
+    var mysql = new mySQL;
+
     let traigoJuegos = async() => {
-        try {
-            var registros = await conn.query(process.env.sql, (err, result) => {
-                if (err) {
-                    res.status(400).json(err);
-                } else {
-                    res.status(200).json(result)
-                }
-                conn.end();
+        await mysql.conectar();
+        mysql.sql = process.env.sql;
+        await mysql.leoMySQL();
+        if (mysql.result) {
+            res.status(200).json(result);
+        } else {
+            res.status(400).json({
+                'Mensaje: ': 'Sin Resultados'
             });
-        } catch (error) {
-            res.status(400).json(error);
         }
     }
     traigoJuegos();
